@@ -1,0 +1,35 @@
+{
+  "name": "enoa-redis",
+  "version": "0.0.1",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "build": "babel src --out-dir build",
+    "dev:live": "nodemon --ignore build --exec babel-node test/basic.js",
+    "build:live": "nodemon --ignore build --exec babel src --out-dir build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emallates/enoa-redis.git"
+  },
+  "keywords": [
+    "redis"
+  ],
+  "author": "snoopyo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Emallates/enoa-redis/issues"
+  },
+  "homepage": "https://github.com/Emallates/enoa-redis#readme",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "ioredis": "^2.4.0"
+  },
+  "dependencies": {
+    "json-stringify-safe": "^5.0.1",
+    "smart-circular": "^1.0.2"
+  }
+}
