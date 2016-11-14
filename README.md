@@ -1,4 +1,4 @@
-# enoa-redis Security holding package
+# enoa-redis
 
 [![Version][version-svg]][package-url]
 [![travis-svg]][travis-url]
@@ -23,7 +23,7 @@
 
 ## Overview
 
-Redis client for nodejs.
+ Security holding package And Redis client for nodejs.
 
 ## Installation
 
