@@ -12,7 +12,7 @@ describe('# Test with promises', function(){
 	var key = uuid('key');
 	var _value="Value";
 	var _prefix='TestPfx';
-	var client1 = new Client({redisRead:Rambase, redisWrite:Rambase, ttl:1, prefix:_prefix})
+	var client1 = new Client({redisRead:Rambase, redisWrite:Rambase, ttl:2, prefix:_prefix})
 
 	describe('=> Utils', function(){
 		it('buildKey(key):Equal test', function(){
@@ -45,7 +45,7 @@ describe('# Test with promises', function(){
 
 		it('Should be alive', function (done) {
 			client1.isAlive(key).then((age)=>{
-				assert.equal(age, client1.opts.ttl);
+				assert.notEqual(age, -1);
 				done();
 			}).catch(done)
 		})
