@@ -37,21 +37,21 @@ describe('# Test with promises', function(){
 		
 		
 		it('Should set without any error', function (done) {
-			client1.setItem(key, _value).then((setResp)=>{
+			client1.setItem(key, _value).then(function(setResp){
 				assert.deepEqual(setResp, [[null, 'OK'], [null, 1]]);
 				done();
 			}).catch(done)
 		})
 
 		it('Should be alive', function (done) {
-			client1.isAlive(key).then((age)=>{
+			client1.isAlive(key).then(function(age){
 				assert.notEqual(age, -1);
 				done();
 			}).catch(done)
 		})
 
 		it('Should be real value', function (done) {
-			client1.getItem(key).then((value)=>{
+			client1.getItem(key).then(function(value){
 				assert.deepEqual(value, _value);
 				done();
 			}).catch(done)
@@ -59,7 +59,7 @@ describe('# Test with promises', function(){
 
 		it('Should reject overwrite', function (done) {
 			client1.setItem(key, _value)
-			.then(()=>{
+			.then(function(){
 				return done(new Error('Overwrite must throw an error'))
 			})
 			.catch(function (err) {
@@ -70,7 +70,7 @@ describe('# Test with promises', function(){
 
 		it('Should accept overwrite', function (done) {
 			client1.setItem(key, _value, true)
-			.then((setResp)=>{
+			.then(function(setResp){
 				assert.deepEqual(setResp, [[null, 'OK'], [null, 1]]);
 				done();
 			})
@@ -81,13 +81,13 @@ describe('# Test with promises', function(){
 			var key2 = key+2;
 
 			client1.setItem(key2, _value, true)
-			.then((setResp)=>{
+			.then(function(setResp){
 				return client1.removeItem(key2)
 			})
-			.then((setResp)=>{
+			.then(function(setResp){
 				return client1.getItem(key2)
 			})
-			.then((valResp)=>{
+			.then(function(valResp){
 				assert.equal(valResp,null);
 				done();
 			})
