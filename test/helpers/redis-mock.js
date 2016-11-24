@@ -86,7 +86,7 @@ function Pipeline() {
 		return _this;
 	}
 	_this.exec = function (callback) {
-		return Q.all(cmds).then((respArr)=>{ return respArr.map(resItr=>[null, resItr]) }).nodeify(callback)
+		return Q.all(cmds).then(function(respArr){ return respArr.map(function(resItr){return [null, resItr]}) }).nodeify(callback)
 	}
 	
 }

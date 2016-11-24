@@ -6,6 +6,7 @@
   "scripts": {
     "test": "node ./node_modules/mocha/bin/mocha",
     "test:w": "mocha -w",
+    "isready": "npm run build & npm run test",
     "pretest:w": "npm run build",
     "build": "babel src --out-dir build",
     "build:live": "nodemon --ignore build --exec babel src --out-dir build"
